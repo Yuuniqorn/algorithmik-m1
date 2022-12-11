@@ -12,33 +12,39 @@ Tree = AVLTree()
 Tree.root = None
 
 for files in data_dir.glob('*jpg'):
-    hash_of_image = str(imagehash.average_hash(Image.open(files)))
+    hash_of_image = str(imagehash.phash(Image.open(files)))
     mydict[hash_of_image] = files
     Tree.insert(hash_of_image, files)
 
 
 def get_in_constant_runtime(image):
-    hash_of_image_2 = str(imagehash.average_hash(Image.open(image)))
+    hash_of_image = str(imagehash.phash(Image.open(image)))
 
-    if hash_of_image_2 in mydict:
-        print(f"{mydict[hash_of_image_2]}")
-        # os.startfile(mydict[hash_of_image_2], "open")
+    if hash_of_image in mydict:
+        print(f"{mydict[hash_of_image]}")
+        # os.startfile(mydict[hash_of_image], "open")
 
     else:
         'Nothing found'
 
 
 def get_in_logarithmic_runtime(image):
-    hash_of_image_3 = str(imagehash.average_hash(Image.open(image)))
-    if Tree.search(hash_of_image_3):
-        print(Tree.find(hash_of_image_3).getPaths())
+    hash_of_image = imagehash.phash(Image.open(image))
+    hash_as_str = str(hash_of_image)
+
+    if Tree.search(hash_as_str):
+        print(Tree.find(hash_as_str).getPaths())
 
     else:
         'Nothing found'
 
 
 def get_most_similar_in_log_runtime(image):
-    pass
+
+    hash_of_image = imagehash.phash(Image.open(image))
+    hash_as_str = str(hash_of_image)
+
+    Tree.get_most_similar(hash_as_str)
 
 
 def get_image_paths(self):
@@ -64,3 +70,4 @@ test_image_path = 'C:/Users/nico/Desktop/cats_vs_dogs_dataset/PetImages/Cat/2.jp
 
 get_in_constant_runtime(test_image_path)
 get_in_logarithmic_runtime(test_image_path)
+get_most_similar_in_log_runtime(test_image_path)
