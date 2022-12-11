@@ -72,16 +72,16 @@ test_image_path = 'C:/Users/nico/Desktop/cats_vs_dogs_dataset/PetImages/Cat/2.jp
 # Methode 1 get in kontanter Laufzeit
 start_time = timeit.default_timer()
 get_in_constant_runtime(test_image_path)
-print("It took :", timeit.default_timer() - start_time, " ms")
+print('It took :', timeit.default_timer() - start_time, ' ms')
 
 # Methode 2 get in logarithmischer Laufzeit
 start_time = timeit.default_timer()
 get_in_logarithmic_runtime(test_image_path)
-print("It took :", timeit.default_timer() - start_time, " ms")
+print('It took :', timeit.default_timer() - start_time, ' ms')
 
 # Methode 3 get_most_similar in logarithmischer Laufzeit
 start_time = timeit.default_timer()
 get_most_similar_in_log_runtime(test_image_path)
-print("The time difference is :", timeit.default_timer() - start_time)
+print('It took :', timeit.default_timer() - start_time, ' ms')
 
 
