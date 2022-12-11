@@ -79,7 +79,7 @@ start_time = timeit.default_timer()
 get_in_logarithmic_runtime(test_image_path)
 print("It took :", timeit.default_timer() - start_time, " ms")
 
-# # Methode 3 get_most_similar in logarithmischer Laufzeit
+# Methode 3 get_most_similar in logarithmischer Laufzeit
 start_time = timeit.default_timer()
 get_most_similar_in_log_runtime(test_image_path)
 print("The time difference is :", timeit.default_timer() - start_time)
