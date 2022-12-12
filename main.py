@@ -67,7 +67,10 @@ def get_image_paths(self):
         return list_of_all_imagine_paths
 
 
-test_image_path = 'C:/Users/nico/Desktop/cats_vs_dogs_dataset/PetImages/Cat/2.jpg'
+test_image_1 = 'C:/Users/nico/Desktop/cats_vs_dogs_dataset/PetImages/Cat/2.jpg'  # Image out of Cats dataaset
+test_image_2 = 'C:/Users/nico/Desktop/cats_vs_dogs_dataset/PetImages/Dog/2.jpg'  # Image outside of Cats dataset
+
+test_image_path = test_image_2
 
 # Methode 1 get in kontanter Laufzeit
 start_time = timeit.default_timer()
@@ -83,5 +86,15 @@ print('It took :', timeit.default_timer() - start_time, ' ms')
 start_time = timeit.default_timer()
 get_most_similar_in_log_runtime(test_image_path)
 print('It took :', timeit.default_timer() - start_time, ' ms')
+
+original_hash = imagehash.phash(Image.open('C:/Users/nico/Desktop/Some_Images/2.jpg'))
+but_rotated = imagehash.phash(Image.open('C:/Users/nico/Desktop/Some_Images/2_but_rotated.jpg'))
+but_grayscaled = imagehash.phash(Image.open('C:/Users/nico/Desktop/Some_Images/2_but_greyscaled.jpg'))
+but_changed_brightness = imagehash.phash(Image.open('C:/Users/nico/Desktop/Some_Images/2_but_changed_brightness_.jpg'))
+
+print(original_hash)
+print(but_rotated)
+print(but_grayscaled)
+print(but_changed_brightness)
 
 
